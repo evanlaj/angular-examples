@@ -1,0 +1,24 @@
+<label class="wrapper">
+  <div class="color-preview" [style.backgroundColor]="color"></div>
+  <input
+    type="text"
+    class="color-input"
+    (blur)="updateColor($event)"
+    (input)="updateColor($event)"
+    #colorInput
+  />
+  <div class="overlay">
+    <button type="button" class="gradient">
+      <div class="gradient-background"></div>
+      <div class="gradient-slider"></div>
+    </button>
+    <button 
+      type="button" 
+      class="hue-gradient" 
+      (mousemove)="updateColorFromHue($event)" 
+      (mousedown)="updateColorFromHue($event)"
+    >
+      <div class="hue-slider" [style.left]="huePosition + 'px'"></div>
+    </button>
+  </div>
+</label>

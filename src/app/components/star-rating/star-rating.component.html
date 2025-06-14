@@ -1,0 +1,6 @@
+<div 
+  *ngFor="let dot of [].constructor(MAX_RATING); let i = index" 
+  class="dot"
+  [class.filled]="i < rating"
+  (click)="writeValue(i + 1)"
+></div>
