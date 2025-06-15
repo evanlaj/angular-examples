@@ -31,6 +31,7 @@ function rgbToHsb(r: number, g: number, b: number) {
       case b: hue = 60 * (((r - g) / delta) + 4); break;
     }
   }
+  if (hue < 0) hue += 360;
 
   const saturation = (max === 0 ? 0 : delta / max)*100;
   const brightness = max*100/255;

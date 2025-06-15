@@ -1,22 +1,38 @@
+@if (label) {
+  <span class="title">{{ label }}</span>
+}
 <label class="wrapper">
   <div class="color-preview" [style.backgroundColor]="color"></div>
   <input
     type="text"
     class="color-input"
-    (blur)="updateColor($event)"
-    (input)="updateColor($event)"
+    (blur)="updateColorFromInput($event)"
+    (input)="updateColorFromInput($event)"
     #colorInput
   />
   <div class="overlay">
-    <button type="button" class="gradient">
+    <button 
+      type="button" 
+      class="gradient" 
+      tabindex="-1"
+      (mousemove)="updateColorFromGradient($event)" 
+      (mousedown)="updateColorFromGradient($event)"
+      #gradient
+    >
       <div class="gradient-background"></div>
-      <div class="gradient-slider"></div>
+      <div 
+        class="gradient-slider"
+        [style.top]="brightnessPosition + 'px'"
+        [style.left]="saturationPosition + 'px'"
+      ></div>
     </button>
     <button 
       type="button" 
       class="hue-gradient" 
+      tabindex="-1"
       (mousemove)="updateColorFromHue($event)" 
       (mousedown)="updateColorFromHue($event)"
+      #hueGradient
     >
       <div class="hue-slider" [style.left]="huePosition + 'px'"></div>
     </button>
