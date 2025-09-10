@@ -1,0 +1,8 @@
+@if (label) {
+  <span class="title" [class.invalid]="!validValue">{{ label + (required ? ' *' : '') }}</span>
+}
+<label class="input-wrapper" [class.invalid]="!validValue">
+  <div class="color-preview" [style.backgroundColor]="'#'+ data"></div>
+  <span class="hashtag">#</span>
+  <input type="text" (blur)="onBlur()" [(ngModel)]="data" [disabled]="disabled" />
+</label>

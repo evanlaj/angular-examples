@@ -1,0 +1,86 @@
+:host {
+  --error: 255, 77, 77;
+}
+
+.title {
+  font-size: 0.875rem;
+  color: #c0c0ce;
+
+  transition: color 0.2s ease-in-out;
+
+  &.invalid {
+    color: rgb(var(--error));
+  }
+}
+
+.input-wrapper {
+  cursor: text;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 6.5rem;
+
+  border-radius: 4px;
+  border: #ceceda solid 1px;
+  outline: 2px solid #c0c0ce00;
+
+  transition: border 0.2s ease-in-out, outline 0.2s ease-in-out;
+
+  &:is(:hover, :focus, :focus-within):not(:has([disabled])) {
+    border: #c0c0ce solid 1px;
+    outline: 2px solid #c0c0ce80;
+
+    &.invalid {
+      border: rgb(var(--error)) solid 1px;
+      outline: 2px solid rgba(var(--error), 0.5);
+    }
+  }
+
+  &.invalid {
+    border: rgb(var(--error)) solid 1px;
+  }
+
+  &:has([disabled]) {
+    cursor: default;
+    border: #ceceda dashed 1px;
+  }
+}
+
+.color-preview {
+  width: 1rem;
+  height: 1rem;
+
+  margin: 0.5rem;
+  margin-right: 0;
+
+  border-radius: 2px;   
+}
+
+.hashtag, input {
+  font-size: 14px;
+  font-family: monospace;
+}
+
+.hashtag {
+  color: #c0c0ce;
+  padding-left: 0.5rem;
+}
+
+input {
+  flex: 1 1 auto;
+  width: 2rem;
+  padding: 0.5rem;
+  padding-left: 0;
+
+  background: none;
+  border: none;
+
+  font-family: monospace;
+
+  &:is(:hover, :focus, :focus-visible, :active) {
+    outline: none;
+  }
+}

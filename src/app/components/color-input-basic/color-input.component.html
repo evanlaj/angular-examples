@@ -1,0 +1,8 @@
+@if (label) {
+  <span class="title">{{ label }}</span>
+}
+<label class="input-wrapper">
+  <div class="color-preview" [style.backgroundColor]="'#'+ color"></div>
+  <span class="hashtag">#</span>
+  <input type="text" (blur)="onBlur()" [(ngModel)]="color" />
+</label>

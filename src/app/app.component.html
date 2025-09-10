@@ -15,7 +15,17 @@
 </div>
 
 <div>
-  <app-color-picker 
-    label="Color picker"
-  />
+  <app-color-input label="Color input" [(ngModel)]="color" />
+</div>
+
+<div>
+  <span>Color ngModel : {{ color }}</span>
+</div>
+
+<div [formGroup]="form">
+  <app-color-input label="Color input" formControlName="color" />
+</div>
+
+<div>
+  <span>Color formGroup : {{ form.get('color')?.value }}</span>
 </div>
